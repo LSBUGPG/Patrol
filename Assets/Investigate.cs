@@ -3,29 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
-public class Patrol : MonoBehaviour
+public class Investigate : MonoBehaviour
 {
+	Vision vision;
 	NavMeshAgent agent;
-	WayPoint [] wayPoints;
 
 	void Awake()
 	{
+		vision = GetComponent<Vision>();
 		agent = GetComponent<NavMeshAgent>();
-		wayPoints = FindObjectsOfType<WayPoint>();
 	}
 
 	void OnEnable()
 	{
-		WayPoint wayPoint = wayPoints[Random.Range(0, wayPoints.Length)];
-		agent.SetDestination(wayPoint.transform.position);
+		agent.SetDestination(vision.lastKnownPosition);
 	}
 
 	void Update()
 	{
 		if (!agent.hasPath)
 		{
-			enabled = false;
 			SendMessage("Patrol");
 		}
 	}
