@@ -5,25 +5,25 @@ using UnityEngine.AI;
 
 public class Investigate : MonoBehaviour
 {
-	Vision vision;
-	NavMeshAgent agent;
+    Vision vision;
+    NavMeshAgent agent;
 
-	void Awake()
-	{
-		vision = GetComponent<Vision>();
-		agent = GetComponent<NavMeshAgent>();
-	}
+    void Awake()
+    {
+        vision = GetComponent<Vision>();
+        agent = GetComponent<NavMeshAgent>();
+    }
 
-	void OnEnable()
-	{
-		agent.SetDestination(vision.lastKnownPosition);
-	}
+    void OnEnable()
+    {
+        agent.SetDestination(vision.lastKnownPosition);
+    }
 
-	void Update()
-	{
-		if (!agent.hasPath)
-		{
-			SendMessage("Patrol");
-		}
-	}
+    void Update()
+    {
+        if (!agent.hasPath)
+        {
+            SendMessage("SetBehaviour", "Patrol");
+        }
+    }
 }

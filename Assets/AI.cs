@@ -8,26 +8,8 @@ public class AI : MonoBehaviour
 
 	void SetBehaviour(string behaviourName)
 	{
-		states.ForEach((behaviour) => behaviour.enabled = behaviour.GetType().ToString() == behaviourName);
-	}
-
-	void Chase()
-	{
-		SetBehaviour("Chase");
-	}
-
-	void Patrol()
-	{
-		SetBehaviour("Patrol");
-	}
-
-	void Investigate()
-	{
-		SetBehaviour("Investigate");
-	}
-
-	void Attack()
-	{
-		SetBehaviour("Attack");
+		states.ForEach((behaviour) => 
+            behaviour.enabled = 
+                (behaviour.GetType().ToString() == behaviourName));
 	}
 }

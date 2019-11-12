@@ -4,28 +4,27 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-	public float attackRange;
-	Vision vision;
+    public float attackRange;
+    Vision vision;
 
-	void Awake()
-	{
-		vision = GetComponent<Vision>();
-	}
+    void Awake()
+    {
+        vision = GetComponent<Vision>();
+    }
 
-	void Update()
-	{
-		if (vision.target == null)
-		{
-			SendMessage("Investigate");
-		}
-		else if (vision.rangeToTarget > attackRange)
-		{
-			SendMessage("Chase");
-		}
-		else
-		{
-			enabled = false;
-			SendMessage("Attack");
-		}
-	}
+    void Update()
+    {
+        if (vision.target == null)
+        {
+            SendMessage("SetBehaviour", "Investigate");
+        }
+        else if (vision.rangeToTarget > attackRange)
+        {
+            SendMessage("SetBehaviour", "Chase");
+        }
+        else
+        {
+            Debug.Log("Attack");
+        }
+    }
 }
