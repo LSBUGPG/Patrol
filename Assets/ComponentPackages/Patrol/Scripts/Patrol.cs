@@ -7,12 +7,11 @@ using UnityEngine.AI;
 public class Patrol : MonoBehaviour
 {
     NavMeshAgent agent;
-    WayPoint[] wayPoints;
+    public WayPoint[] wayPoints;
 
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        wayPoints = FindObjectsOfType<WayPoint>();
     }
 
     void OnEnable()
