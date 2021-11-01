@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 3f000eed4d27f48b3aae6292626a84fd, type: 2}
+--- !u!114 &6110063 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114294929961904704, guid: 8c87b28a5c1a0453c95e3b2e88926065,
+    type: 3}
+  m_PrefabInstance: {fileID: 386926319}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a698f7af54245158702d1260267863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &50084273
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +417,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282840810}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 10, z: -10}
+  m_LocalPosition: {x: 0, y: 10, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -418,6 +430,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1990749973136572, guid: 8c87b28a5c1a0453c95e3b2e88926065, type: 3}
+      propertyPath: m_Name
+      value: WayPoint1
+      objectReference: {fileID: 0}
     - target: {fileID: 4975569567872462, guid: 8c87b28a5c1a0453c95e3b2e88926065, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -461,7 +477,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1990749973136572, guid: 8c87b28a5c1a0453c95e3b2e88926065, type: 3}
       propertyPath: m_Name
-      value: WayPoint (1)
+      value: WayPoint2
       objectReference: {fileID: 0}
     - target: {fileID: 4975569567872462, guid: 8c87b28a5c1a0453c95e3b2e88926065, type: 3}
       propertyPath: m_RootOrder
@@ -593,6 +609,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &813971120 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114294929961904704, guid: 8c87b28a5c1a0453c95e3b2e88926065,
+    type: 3}
+  m_PrefabInstance: {fileID: 686960681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a698f7af54245158702d1260267863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!850595691 &1485946274
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -791,6 +819,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b077f0e8e6ab940f0a92835b24d2a3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wayPoints:
+  - {fileID: 6110063}
+  - {fileID: 813971120}
 --- !u!114 &1543870631
 MonoBehaviour:
   m_ObjectHideFlags: 0
