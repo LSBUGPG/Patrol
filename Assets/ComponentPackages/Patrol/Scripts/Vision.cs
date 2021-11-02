@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class Vision : MonoBehaviour
 {
     public float viewDistance = 10.0f;
     public float fov = 90.0f;
+    public UnityEvent onSpotted;
     Transform player;
 
     internal Transform target;
@@ -40,7 +40,7 @@ public class Vision : MonoBehaviour
                 rangeToTarget = distance;
                 if (target == null)
                 {
-                    SendMessage("SetBehaviour", "Chase");
+                    onSpotted.Invoke();
                 }
                 target = player.transform;
             }

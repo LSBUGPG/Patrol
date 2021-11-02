@@ -1,10 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class Attack : MonoBehaviour
 {
     public float attackRange;
+    public UnityEvent attack;
+    public UnityEvent lostTarget;
+    public UnityEvent outOfRange;
     Vision vision;
 
     void Awake()
@@ -16,15 +18,15 @@ public class Attack : MonoBehaviour
     {
         if (vision.target == null)
         {
-            SendMessage("SetBehaviour", "Investigate");
+            lostTarget.Invoke();
         }
         else if (vision.rangeToTarget > attackRange)
         {
-            SendMessage("SetBehaviour", "Chase");
+            outOfRange.Invoke();
         }
         else
         {
-            Debug.Log("Attack");
+            attack.Invoke();
         }
     }
 }

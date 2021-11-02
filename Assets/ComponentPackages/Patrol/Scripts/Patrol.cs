@@ -1,13 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class Patrol : MonoBehaviour
 {
-    NavMeshAgent agent;
+    public UnityEvent onWaypointReached;
     public WayPoint[] wayPoints;
+    NavMeshAgent agent;
 
     void Awake()
     {
@@ -25,7 +25,7 @@ public class Patrol : MonoBehaviour
         if (!agent.hasPath)
         {
             enabled = false;
-            SendMessage("SetBehaviour", "Patrol");
+            onWaypointReached.Invoke();
         }
     }
 }

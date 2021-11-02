@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Chase : MonoBehaviour
 {
     public float attackRange = 2.0f;
+    public UnityEvent inRange;
+    public UnityEvent targetLost;
     NavMeshAgent agent;
     Vision vision;
 
@@ -21,7 +22,7 @@ public class Chase : MonoBehaviour
         {
             if (vision.rangeToTarget < attackRange)
             {
-                SendMessage("SetBehaviour", "Attack");
+                inRange.Invoke();
             }
             else
             {
@@ -30,7 +31,7 @@ public class Chase : MonoBehaviour
         }
         else
         {
-            SendMessage("SetBehaviour", "Investigate");
+            targetLost.Invoke();
         }
     }
 }
