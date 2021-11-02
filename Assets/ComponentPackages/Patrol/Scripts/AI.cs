@@ -6,13 +6,6 @@ public class AI : MonoBehaviour
 {
     public List<Behaviour> states = new List<Behaviour>();
 
-    void SetBehaviour(string behaviourName)
-    {
-        states.ForEach((behaviour) =>
-            behaviour.enabled =
-                (behaviour.GetType().ToString() == behaviourName));
-    }
-
     public void ChangeState(Behaviour newState)
     {
         states.ForEach((state) => state.enabled = (state == newState));
